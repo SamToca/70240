@@ -16,10 +16,7 @@ const connection = mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true
-}));
+app.use(cors());
 
 app.use('/api/users',usersRouter);
 app.use('/api/pets',petsRouter);
