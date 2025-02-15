@@ -16,7 +16,10 @@ const connection = mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: 'https://front-adoptame.vercel.app',
+    credentials: true
+}));
 
 app.use('/api/users',usersRouter);
 app.use('/api/pets',petsRouter);
